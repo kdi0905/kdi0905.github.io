@@ -3,18 +3,14 @@
 <html lang="en">
 
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
-
     <title>포트폴리오</title>
-
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="css/fullpage.min.css">
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
@@ -22,11 +18,73 @@
     <link rel="stylesheet" href="css/templatemo-style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <style>
+        .typing-txt{display: none;}
+        ul{list-style:none;}
+        .typing ul li{
+          display:block;
+        }
+     
+        @keyframes cursor{ 
+          0%{border-right: 1px solid #fff} 
+          50%{border-right: 1px solid #000} 
+          100%{border-right: 1px solid #fff} 
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+          var typingBool = false; 
+          var typingIdx=0; 
+          var liIndex = 0;
+          var liLength = $(".typing-txt>ul>li").length;
 
-    </head>
-    
-    <body>
-    
+          // 타이핑될 텍스트를 가져온다 
+          var typingTxt = $(".typing-txt>ul>li").eq(liIndex).text(); 
+          typingTxt=typingTxt.split(""); // 한글자씩 자른다. 
+          if(typingBool==false){ // 타이핑이 진행되지 않았다면 
+              typingBool=true; 
+              var tyInt = setInterval(typing,100); // 반복동작 
+          } 
+              
+          function typing(){ 
+            $(".typing ul li").removeClass("on");
+            $(".typing ul li").eq(liIndex).addClass("on");
+            if(typingIdx<typingTxt.length){ // 타이핑될 텍스트 길이만큼 반복 
+              $(".typing ul li").eq(liIndex).append(typingTxt[typingIdx]); // 한글자씩 이어준다. 
+              typingIdx++; 
+            } else{ if(liIndex<liLength-1){
+              //다음문장으로  가기위해 인덱스를 1증가
+              if(liIndex>=liLength-1){
+                liIndex=0;
+              }else{
+                liIndex++; 
+              }
+              //다음문장을 타이핑하기위한 셋팅
+                  typingIdx=0;
+                  typingBool = false; 
+                  typingTxt = $(".typing-txt>ul>li").eq(liIndex).text(); 
+                
+              //다음문장 타이핑전 1초 쉰다
+                  clearInterval(tyInt);
+                    //타이핑종료
+              
+                  setTimeout(function(){
+                    //1초후에 다시 타이핑 반복 시작
+                    tyInt = setInterval(typing,100);
+                  },1000);
+                  } else if(liIndex==liLength-1){
+                    
+                  //마지막 문장까지 써지면 반복종료
+                    clearInterval(tyInt);
+                  }
+              } 
+          }  
+         
+        });
+    </script>
+  </head>
+  <body>
     <div id="video">
         <div class="preloader">
             <div class="preloader-bounce">
@@ -49,8 +107,8 @@
                                 <ul class="navigation-menu nav navbar-nav navbars" id="nav">
                                     <li data-menuanchor="slide01" class="active"><a href="#slide01">Home</a></li>
                                     <li data-menuanchor="slide02"><a href="#slide02">About Me</a></li>
-                                    <li data-menuanchor="slide04"><a href="#slide03">My Skills</a></li>
-                                    <li data-menuanchor="slide05"><a href="#slide04">portfolio</a></li>
+                                    <li data-menuanchor="slide03"><a href="#slide03">My Skills</a></li>
+                                    <li data-menuanchor="slide04"><a href="#slide04">Portfolio</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -70,9 +128,20 @@
                     <div class="welcome-box">
                         <span class="welcome-first animate" data-animate="fadeInUp">안녕하세요.</span>
                         <h1 class="welcome-title animate" data-animate="fadeInUp">portfolio</h1>
-                        <p class="animate" data-animate="fadeInUp">
-                          사소한 것도 배우면서 성장하고
-                          <br>포기하지 않고 자신감을 가져 노력하는 개발자 입니다. </p>
+                        <div class="typing-txt"> 
+                          <ul>
+                            <li>사소한 것도 배우면서 성장하고</li>
+                            <li>포기하지 않고 자신감을 가져 노력하는 개발자 입니다.</li>
+                          </ul>
+                        </div>
+                        <div class=" animate typing" data-animate="fadeInUp">
+                          <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                         </ul>
+                       </div>  
+                        
                         <div class="scroll-down next-section "data-animate="fadeInUp" ><img src="images/mouse-scroll.png" alt=""><span>Scroll Down</span></div>
                       </div>
                 </div>
@@ -164,83 +233,40 @@
                     </div>
                 </div>
             </div>
-            
             <div class="section animated-row" data-section="slide04">
-                <div class="section-inner">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 wide-col-laptop">
-                            <div class="title-block animate" data-animate="fadeInUp">
-                                <h2>portfolio</h2>
-                            </div>
-                            <div class="col-md-8 offset-md-2">
-                                <div class="testimonials-section">
-                                    <div class="testimonials-slider owl-carousel">
-                                        <div class="item animate" data-animate="fadeInUp"  style="width: 1000px;">
-                                            <div class="testimonial-item">
-                                              <a href ="http://kdi0905.kro.kr/lms" target="_blank">
-                                                <div class="client-row">
-                                                    <img src="images/teamProject-Lms.PNG" class="rounded-circle" alt="LMS">
-                                                </div>
-                                                
-                                                <h4>LMS</h4>
-                                                <span><strong>TeamProject</strong></span>
-                                                <p>7인 팀 프로젝트, Spring Boot를 이용한 LMS 시스템 구축</p>
-                                              </a>
-                                                <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/goodee-project/LMS-X" target="_blank">https://github.com/goodee-project/LMS-X </a></span><br>
-                                                <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/lms" target="_blank">http://kdi0905.kro.kr/lms</a> </span>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="item animate" data-animate="fadeInUp"  style="width: 1000px;">
-                                            <div class="testimonial-item">
-                                              <a href ="http://kdi0905.kro.kr/cash" target="_blank">
-                                                <div class="client-row">
-                                                    <img src="images/cash.png" class="rounded-circle" alt="CashBook">
-                                                </div>
-                                                <h4>CashBook</h4>
-                                                <span><strong>MiniProject</strong></span>
-                                                <p>Spring Boot, Mybatis, RestController, AJax등을 활용한 가계부 프로그램</p>
-                                              </a> 
-                                              <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/cash" target="_blank">https://github.com/kdi0905/cash</a></span><br>
-                                              <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/cash" target="_blank">http://kdi0905.kro.kr/cash</a> </span>
-                                            </div>
-                                        </div>
-                                        <div class="item animate" data-animate="fadeInUp"  style="width: 1000px;">
+              <div class="section-inner">
+                  <div class="row justify-content-center">
+                      <div class="col-md-9 wide-col-laptop">
+                          <div class="title-block animate" data-animate="fadeInUp">
+                              <h2>Portfolio</h2>
+                          </div>
+                          <div class="contact-section" style="font-size: 70%;">
+                            <div class="row">
+                                <div class="col-md-3 animate" data-animate="fadeInUp">
+                                    <div class="contact-box"  >
+                                      <div class="testimonials-section" style="height: 400px;">
+                                        <div class="item animate " data-animate="fadeInUp"  >
                                           <div class="testimonial-item">
-                                            <a href ="http://kdi0905.kro.kr/sakila/LoginServlet" target="_blank">
-                                              <div class="client-row">
-                                                  <img src="images/sakila.PNG" class="rounded-circle" alt="sakila">
+                                            <a href ="http://kdi0905.kro.kr/lms" target="_blank">
+                                              <div class="client-row" style="margin-left: 50px;">
+                                                  <!-- 사진 -->
                                               </div>
-                                              <div class="testimonial-content">
-                                                  <h4>sakila</h4>
-                                                  <span><strong>MiniProject</strong></span>
-                                                  <p>Model 2 기법으로 만든 비디오 대여점 관리 프로젝트</p>
+                                              
+                                              <h4>LMS</h4>
+                                              <span><strong>TeamProject</strong></span>
+                                              <p>7인 팀 프로젝트, Spring Boot를 이용한 LMS 시스템 구축</p>
                                             </a>
-                                            <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/sakila" target="_blank">https://github.com/kdi0905/sakila</a></span><br>
-                                            <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/sakila/LoginServlet" target="_blank">http://kdi0905.kro.kr/sakila/LoginServlet</a> </span>
-                                              </div>     
-                                                                                  
+                                              <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/goodee-project/LMS-X" target="_blank">https://github.com/goodee-project/LMS-X </a></span><br>
+                                              <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/lms" target="_blank">http://kdi0905.kro.kr/lms</a> </span>
                                           </div>
                                         </div>
-                                        <div class="item animate" data-animate="fadeInUp"  style="width: 1000px;">
-                                            <div class="testimonial-item">
-                                              <a href ="http://kdi0905.kro.kr/mall" target="_blank">
-                                                <div class="client-row">
-                                                    <img src="images/mall.png" class="rounded-circle" alt="mall">
-                                                </div>
-                                                <h4>mall</h4>
-                                                <span><strong>MiniProject</strong></span>
-                                                <p>Model 1 으로 DB와 JSP 페이지를 개별로 작업 관리자와 사용자가 독립적인 사이트를 이용할 수 있도록 두 개의 프로젝트로 작업</p>
-                                              </a>     
-                                              <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/mall" target="_blank">https://github.com/kdi0905/mall</a></span><br>
-                                              <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/mall" target="_blank">http://kdi0905.kro.kr/mall</a> </span>
-                                           </div>
-                                        </div>
-                                        <div class="item animate" data-animate="fadeInUp"  style="width: 1000px;">
+                                      </div>
+                                      <div class="testimonials-section">
+                                        <div class="item animate " data-animate="fadeInUp"  >
                                           <div class="testimonial-item">
                                             <a href ="http://kdi0905.kro.kr/mall-admin" target="_blank">
-                                              <div class="client-row">
-                                                  <img src="images/mall-admin.png" class="rounded-circle" alt="mall-admin">
+                                              <div class="client-row"  style="margin-left: 50px;">
+                                                <!-- 사진 -->
                                               </div>
                                               <h4>mall-admin</h4>
                                               <span><strong>MiniProject</strong></span>
@@ -250,13 +276,36 @@
                                             <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/mall-admin" target="_blank">http://kdi0905.kro.kr/mall-admin</a> </span>
                                           </div>
                                         </div>
-                                        <div class="item animate" data-animate="fadeInUp"  style="width: 1000px;">
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 animate" data-animate="fadeInUp">
+                                  <div class="contact-box">
+                                      <div class="testimonials-section" style="height: 400px;">
+                                        <div class="item animate " data-animate="fadeInUp"  >
+                                          <div class="testimonial-item">
+                                            <a href ="http://kdi0905.kro.kr/cash" target="_blank">
+                                              <div class="client-row"  style="margin-left: 50px;">
+                                                  <!-- 사진 -->
+                                              </div>
+                                              <h4>CashBook</h4>
+                                              <span><strong>MiniProject</strong></span>
+                                              <p>Spring Boot, Mybatis, RestController, AJax등을 활용한 가계부 프로그램</p>
+                                            </a> 
+                                            <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/cash" target="_blank">https://github.com/kdi0905/cash</a></span><br>
+                                            <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/cash" target="_blank">http://kdi0905.kro.kr/cash</a> </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                   
+                                      <div class="testimonials-section">
+                                        <div class="item animate " data-animate="fadeInUp"  >
                                           <div class="testimonial-item">
                                             <a href ="http://kdi0905.kro.kr/employees" target="_blank">
-                                              <div class="client-row">
-                                                  <img src="images/employees.png" class="rounded-circle" alt="employees">
+                                              <div class="client-row"  style="margin-left: 50px;">
+                                                  <!-- 사진 -->
                                               </div>
-                                                <h4>employees</h4>
+                                                <h4>Employees</h4>
                                                 <span><strong>MiniProject</strong></span>
                                                 <p>Mysql 샘플 EMPLOYEES 데이터베이스를 이용한 JSP만으로 구현한 직원 관리 프로젝트</p>
                                             </a>       
@@ -264,30 +313,72 @@
                                             <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/employees" target="_blank">http://kdi0905.kro.kr/employees</a> </span>
                                           </div>
                                         </div>
-                                        <div class="item animate" data-animate="fadeInUp" style="width: 1000px;">
-                                          <div class="testimonial-item">
-                                            <a href ="http://kdi0905.kro.kr:8888/" target="_blank">
-                                              <div class="client-row">
-                                                  <img src="images/python.png" class="rounded-circle" alt="python">
-                                              </div>
-                                              <h4>python</h4>
-                                              <span><strong>MiniProject</strong></span>
-                                              <p>파이썬으로 간단하게 만든 게시판</p>
-                                            </a> 
-                                              <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/pyapp" target="_blank">https://github.com/kdi0905/pyapp</a></span><br>
-                                              <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr:8888/" target="_blank">http://kdi0905.kro.kr:8888/</a> </span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-3 animate" data-animate="fadeInUp">
+                                <div class="contact-box">
+                                  <div class="testimonials-section" style="height: 400px;">
+                                    <div class="item animate " data-animate="fadeInUp"  >
+                                      <div class="testimonial-item">
+                                        <a href ="http://kdi0905.kro.kr/sakila/LoginServlet" target="_blank">
+                                          <div class="client-row"  style="margin-left: 50px;">
+                                                <!-- 사진 -->
                                           </div>
-                                        </div>
+                                            <h4>Sakila</h4>
+                                            <span><strong>MiniProject</strong></span>
+                                            <p>Model 2 기법으로 만든 비디오 대여점 관리 프로젝트</p>
+                                        </a>
+                                        <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/sakila" target="_blank">https://github.com/kdi0905/sakila</a></span><br>
+                                        <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/sakila/LoginServlet" target="_blank">http://kdi0905.kro.kr/sakila/LoginServlet</a> </span>
+                                      </div>
                                     </div>
+                                  </div>
+                                  <div class="testimonials-section">
+                                    <div class="item animate " data-animate="fadeInUp"  >
+                                      <div class="testimonial-item">
+                                        <a href ="http://kdi0905.kro.kr:8888/" target="_blank">
+                                          <div class="client-row" style="margin-left: 50px;">
+                                              <!-- 사진 -->
+                                          </div>
+                                          <h4>Python</h4>
+                                          <span><strong>MiniProject</strong></span>
+                                          <p>파이썬으로 간단하게 만든 게시판</p>
+                                        </a> 
+                                          <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/pyapp" target="_blank">https://github.com/kdi0905/pyapp</a></span><br>
+                                          <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr:8888/" target="_blank">http://kdi0905.kro.kr:8888/</a> </span>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
+                              </div>
+                              <div class="col-md-3 animate" data-animate="fadeInUp">
+                                <div class="contact-box">
+                                  <div class="testimonials-section">
+                                    <div class="item animate " data-animate="fadeInUp"  >
+                                      <div class="testimonial-item">
+                                        <a href ="http://kdi0905.kro.kr/mall" target="_blank">
+                                          <div class="client-row" style="margin-left: 50px;">
+                                               <!-- 사진 -->
+                                          </div>
+                                          <h4>mall</h4>
+                                          <span><strong>MiniProject</strong></span>
+                                          <p>Model 1 으로 DB와 JSP 페이지를 개별로 작업 관리자와 사용자가 독립적인 사이트를 이용할 수 있도록 두 개의 프로젝트로 작업</p>
+                                        </a>     
+                                        <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/mall" target="_blank">https://github.com/kdi0905/mall</a></span><br>
+                                        <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/mall" target="_blank">http://kdi0905.kro.kr/mall</a> </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                        </div>
-                    </div>
+                          </div>
+                      </div>
+                  </div>
                 </div>
             </div>
         </div>
-
-      
     </div>  
 
     <script src="js/jquery.js"></script>
