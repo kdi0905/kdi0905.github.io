@@ -1,439 +1,370 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>포트폴리오</title>
+<meta name="description" content="">
+<meta name="author" content="">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
-    <title>포트폴리오</title>
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="css/fullpage.min.css">
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/templatemo-style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-    <style>
-        .typing-txt{display: none;}
-        ul{list-style:none;}
-        .typing ul li{
-          display:block;
-        }
-     
-        @keyframes cursor{ 
-          0%{border-right: 1px solid #fff} 
-          50%{border-right: 1px solid #000} 
-          100%{border-right: 1px solid #fff} 
-        }
-    </style>
-    <script>
-        $(document).ready(function(){
-          var typingBool = false; 
-          var typingIdx=0; 
-          var liIndex = 0;
-          var liLength = $(".typing-txt>ul>li").length;
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
 
-          // 타이핑될 텍스트를 가져온다 
-          var typingTxt = $(".typing-txt>ul>li").eq(liIndex).text(); 
-          typingTxt=typingTxt.split(""); // 한글자씩 자른다. 
-          if(typingBool==false){ // 타이핑이 진행되지 않았다면 
-              typingBool=true; 
-              var tyInt = setInterval(typing,100); // 반복동작 
-          } 
-              
-          function typing(){ 
-            $(".typing ul li").removeClass("on");
-            $(".typing ul li").eq(liIndex).addClass("on");
-            if(typingIdx<typingTxt.length){ // 타이핑될 텍스트 길이만큼 반복 
-              $(".typing ul li").eq(liIndex).append(typingTxt[typingIdx]); // 한글자씩 이어준다. 
-              typingIdx++; 
-            } else{ if(liIndex<liLength-1){
-              //다음문장으로  가기위해 인덱스를 1증가
-              if(liIndex>=liLength-1){
-                liIndex=0;
-              }else{
-                liIndex++; 
-              }
-              //다음문장을 타이핑하기위한 셋팅
-                  typingIdx=0;
-                  typingBool = false; 
-                  typingTxt = $(".typing-txt>ul>li").eq(liIndex).text(); 
-                
-              //다음문장 타이핑전 1초 쉰다
-                  clearInterval(tyInt);
-                    //타이핑종료
-              
-                  setTimeout(function(){
-                    //1초후에 다시 타이핑 반복 시작
-                    tyInt = setInterval(typing,100);
-                  },1000);
-                  } else if(liIndex==liLength-1){
-                    
-                  //마지막 문장까지 써지면 반복종료
-                    clearInterval(tyInt);
-                  }
-              } 
-          }  
-         
-        });
-    </script>
-  </head>
-  <body>
-    <div id="video">
-        <div class="preloader">
-            <div class="preloader-bounce">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/nivo-lightbox/nivo-lightbox.css">
+<link rel="stylesheet" type="text/css" href="css/nivo-lightbox/default.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation
+    ==========================================-->
+    <nav id="menu" class="navbar navbar-default navbar-fixed-top">
+      <div class="container"> 
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand page-scroll" href="#page-top">포트폴리오</a> </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about" class="page-scroll">About</a></li>
+            <li><a href="#features" class="page-scroll">experience</a></li>
+            <li><a href="#portfolio" class="page-scroll">portfolio</a></li>
+           
+          </ul>
         </div>
-
-        <header id="header">
-            <div class="container-fluid">
-                <div class="navbar">
-                    <a href="#" id="logo" title="Elegance by TemplateMo">
-                        포트폴리오
-                    </a>
-                    <div class="navigation-row">
-                        <nav id="navigation">
-                            <button type="button" class="navbar-toggle"> <i class="fa fa-bars"></i> </button>
-                            <div class="nav-box navbar-collapse">
-                                <ul class="navigation-menu nav navbar-nav navbars" id="nav">
-                                    <li data-menuanchor="slide01" class="active"><a href="#slide01">Home</a></li>
-                                    <li data-menuanchor="slide02"><a href="#slide02">About Me</a></li>
-                                    <li data-menuanchor="slide03"><a href="#slide03">My Skills</a></li>
-                                    <li data-menuanchor="slide04"><a href="#slide04">Portfolio</a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
+        <!-- /.navbar-collapse --> 
+      </div>
+    </nav>
+    <!-- Header -->
+    <header id="header">
+      <div class="intro">
+        <div class="overlay">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 intro-text">
+                <h1>안녕하세요<span></span></h1>
+                <p>사소한 것도 배우면서 성장하고 <br> 포기하지 않고 자신감을 가져 노력하는 신입개발자 입니다.</p>
+                <a href="#features" class="btn btn-custom btn-lg page-scroll">Learn More</a> </div>
             </div>
-        </header>
-
-        <video autoplay muted loop id="myVideo">
-          <!--<source src="images/bg.mp4" type="video/mp4">-->
-          
-        </video>
-
-        <div id="fullpage" class="fullpage-default">
-
-            <div class="section animated-row" data-section="slide01">
-                <div class="section-inner">
-                    <div class="welcome-box">
-                        <span class="welcome-first animate" data-animate="fadeInUp">안녕하세요.</span>
-                        <h1 class="welcome-title animate" data-animate="fadeInUp">portfolio</h1>
-                        <div class="typing-txt"> 
-                          <ul>
-                            <li>사소한 것도 배우면서 성장하고</li>
-                            <li>포기하지 않고 자신감을 가져 노력하는 개발자 입니다.</li>
-                          </ul>
-                        </div>
-                        <div class=" animate typing" data-animate="fadeInUp">
-                          <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                         </ul>
-                       </div>  
-                        
-                        <div class="scroll-down next-section "data-animate="fadeInUp" ><img src="images/mouse-scroll.png" alt=""><span>Scroll Down</span></div>
-                      </div>
-                </div>
-            </div>
-
-            <div class="section animated-row" data-section="slide02">
-                <div class="section-inner">
-                    <div class="about-section">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8 wide-col-laptop">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="about-contentbox" >
-                                            <div class="animate" data-animate="fadeInUp" style=" margin-top:150px;">
-                                              <figure class="about-img animate" data-animate="fadeInUp"> <img src="images/kimdeokin.jpg" class="rounded" alt=""></figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                      <div class="animate" data-animate="fadeInUp">
-                                        <span>About Me</span>
-                                        <h2>Who am i?</h2>
-                                        <div class="contact-box">
-                                          <div class="contact-row">
-                                              <i class="fas fa-user-alt"></i> 김덕인
-                                          </div>
-                                          <div class="contact-row">
-                                              <i class="fa fa-phone"></i> 010-8856-4914
-                                          </div>
-                                          <div class="contact-row">
-                                              <i class="fa fa-envelope"></i> sdo5895@naver.com
-                                          </div>
-                                          <div class="contact-row">
-                                            <i class="fa fa-map-marker"></i> 인천광역시 남동구 호구포로924
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section animated-row" data-section="slide03">
-                <div class="section-inner">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 wide-col-laptop">
-                            <div class="title-block animate" data-animate="fadeInUp">
-                                <span>My Skills</span>
-                            </div>
-                            <div class="services-section">
-                                <div class="services-list owl-carousel">
-                                    <div class="item animate" data-animate="fadeInUp">
-                                        <div class="service-box" style="width:350px" >
-                                            <span class="service-icon"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
-                                            <h3>Language</h3>
-                                            <p ><strong> Java </strong><br> 객체지향설계,  thyemleaf, Servlet, Spring Security, JPA,  REST API
-                                              <br><strong> Python </strong><br>  Pandas, Flask
-                                              <br><strong> Javascript </strong><br>  Node, Express, pug 
-                                              <br><strong>HTML5  </strong><br> canvas
-                                              <br><strong>c  </strong><br> 절차지향설계
-                                              <br><Strong>c#  </Strong><br> WinForm 
-                                              <br><strong>c++  </strong><br> 객체지향설계 
-                                              <br><strong>UNIX  </strong>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="item animate" data-animate="fadeInUp">
-                                        <div class="service-box" style="width:350px">
-                                            <span class="service-icon"><i class="fa fa-database" aria-hidden="true"></i></span>
-                                            <h3>DataBase</h3>
-                                            <p > RDBMS 데이터 모델링 <br><br> SQL  <br><br> Oracle <br><br> Mysql <br><br> Mariadb <br><br>Join <br><br> DDL, DML </p>
-                                        </div>
-                                    </div>
-                                    <div class="item animate" data-animate="fadeInUp">
-                                        <div class="service-box" style="width:350px">
-                                            <span class="service-icon"><i class="fa fa-desktop" aria-hidden="true"></i></span>
-                                            <h3>Project tool</h3>
-                                            <p> Eclipst <br><br> Visual Studio Code <br><br> Git <br><br> Github <br><br> Maven <br><br> STS <br><br> Visual Studio 2015</p>
-                                        </div>
-                                    </div>
-                                    <div class="item animate" data-animate="fadeInUp">
-                                        <div class="service-box" style="width:350px">
-                                            <span class="service-icon"><i class="fa fa-cloud" aria-hidden="true"></i></span>
-                                            <h3>cloud</h3>
-                                            <p>Amazon Web Services <br><br> Ubuntu <br><br> Tomcat </p>
-                                        </div>
-                                    </div>
-                                    <div class="item animate" data-animate="fadeInUp">
-                                      <div class="service-box" style="width:350px" >
-                                          <span class="service-icon"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
-                                          <h3>Front-End</h3>
-                                          <p >
-                                            <br><br>Bootstrap
-                                            <br><br>jquery
-                                            <br><br>Ajax
-                                            <br><br>ChartJS
-                                            <br><br>Html
-                                            <br><br>JavaScript
-                                          </p>
-                                      </div>
-                                  </div>
-                                  <div class="item animate" data-animate="fadeInUp">
-                                    <div class="service-box" style="width:350px" >
-                                        <span class="service-icon"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
-                                        <h3>Back-End</h3>
-                                        <p >
-                                            <br><br>Spring FrameWork
-                                            <br><br>JSP/JSTL
-                                            <br><br>MyBatis
-                                        </p>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section animated-row" data-section="slide04">
-              <div class="section-inner">
-                  <div class="row justify-content-center">
-                      <div class="col-md-9 wide-col-laptop">
-                          <div class="title-block animate" data-animate="fadeInUp">
-                              <h2>Portfolio</h2>
-                          </div>
-                          <div class="contact-section" style="font-size: 80%;">
-                            <div class="row">
-                                <div class="col-md-3 animate" data-animate="fadeInUp">
-                                    <div class="contact-box"  >
-                                      <div class="testimonials-section" style="height: 420px;">
-                                        <div class="item animate " data-animate="fadeInUp"  >
-                                          <div class="testimonial-item">
-                                            <a href ="http://kdi0905.kro.kr/lms" target="_blank">
-                                              <div class="client-row" style="margin-left: 50px;">
-                                                  <!-- 사진 -->
-                                              </div>
-                                              
-                                              <h4>LMS</h4>
-                                              <span><strong>TeamProject</strong></span>
-                                              <p>7인 팀 프로젝트, Spring Boot를 이용한 LMS 시스템 구축</p>
-                                            </a>
-                                            <span><strong> 프로젝트 기간 : </strong>2020.12.14 - 2021.01.12<br>  
-                                            <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/goodee-project/LMS-X" target="_blank">https://github.com/goodee-project/LMS-X </a></span><br>
-                                            <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/lms" target="_blank">http://kdi0905.kro.kr/lms</a> </span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="testimonials-section">
-                                        <div class="item animate " data-animate="fadeInUp"  >
-                                          <div class="testimonial-item">
-                                            <a href ="http://kdi0905.kro.kr/mall-admin" target="_blank">
-                                              <div class="client-row"  style="margin-left: 50px;">
-                                                <!-- 사진 -->
-                                              </div>
-                                              <h4>mall-admin</h4>
-                                              <span><strong>MiniProject</strong></span>
-                                              <p>Model 1 으로 DB와 JSP 페이지를 개별로 작업 관리자와 사용자가 독립적인 사이트를 이용할 수 있도록 두 개의 프로젝트로 작업</p>
-                                            </a> 
-                                            <span><strong> 프로젝트 기간 : </strong>2020.09.16 - 2020.09.22 <br>       
-                                            <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/mall-admin" target="_blank">https://github.com/kdi0905/mall-admin</a></span><br>
-                                            <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/mall-admin" target="_blank">http://kdi0905.kro.kr/mall-admin</a> </span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 animate" data-animate="fadeInUp">
-                                  <div class="contact-box">
-                                      <div class="testimonials-section" style="height: 420px;">
-                                        <div class="item animate " data-animate="fadeInUp"  >
-                                          <div class="testimonial-item">
-                                            <a href ="http://kdi0905.kro.kr/cash" target="_blank">
-                                              <div class="client-row"  style="margin-left: 50px;">
-                                                  <!-- 사진 -->
-                                              </div>
-                                              <h4>CashBook</h4>
-                                              <span><strong>MiniProject</strong></span>
-                                              <p>Spring Boot, Mybatis, RestController, AJax등을 활용한 가계부 프로그램</p>
-                                            </a>
-                                            <span><strong> 프로젝트 기간 : </strong>2020.11.03 - 2020.11.18 <br>    
-                                            <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/cash" target="_blank">https://github.com/kdi0905/cash</a></span><br>
-                                            <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/cash" target="_blank">http://kdi0905.kro.kr/cash</a> </span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                   
-                                      <div class="testimonials-section">
-                                        <div class="item animate " data-animate="fadeInUp"  >
-                                          <div class="testimonial-item">
-                                            <a href ="http://kdi0905.kro.kr/employees" target="_blank">
-                                              <div class="client-row"  style="margin-left: 50px;">
-                                                  <!-- 사진 -->
-                                              </div>
-                                                <h4>Employees</h4>
-                                                <span><strong>MiniProject</strong></span>
-                                                <p>Mysql 샘플 EMPLOYEES 데이터베이스를 이용한 JSP만으로 구현한 직원 관리 프로젝트</p>
-                                            </a>
-                                            <span><strong> 프로젝트 기간 : </strong>2020.09.08 - 2020.09.15 <br>         
-                                            <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/employees" target="_blank">https://github.com/kdi0905/employees</a></span><br>
-                                            <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/employees" target="_blank">http://kdi0905.kro.kr/employees</a> </span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col-md-3 animate" data-animate="fadeInUp">
-                                <div class="contact-box">
-                                  <div class="testimonials-section" style="height: 420px;">
-                                    <div class="item animate " data-animate="fadeInUp"  >
-                                      <div class="testimonial-item">
-                                        <a href ="http://kdi0905.kro.kr/sakila/LoginServlet" target="_blank">
-                                          <div class="client-row"  style="margin-left: 50px;">
-                                                <!-- 사진 -->
-                                          </div>
-                                            <h4>Sakila</h4>
-                                            <span><strong>MiniProject</strong></span>
-                                            <p>Model 2 기법으로 만든 비디오 대여점 관리 프로젝트</p>
-                                        </a>
-                                        <span><strong> 프로젝트 기간 : </strong>2020.10.19 - 2020.11.05 <br>   
-                                        <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/sakila" target="_blank">https://github.com/kdi0905/sakila</a></span><br>
-                                        <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/sakila/LoginServlet" target="_blank">http://kdi0905.kro.kr/sakila/LoginServlet</a> </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="testimonials-section">
-                                    <div class="item animate " data-animate="fadeInUp"  >
-                                      <div class="testimonial-item">
-                                        <a href ="http://kdi0905.kro.kr:8888/" target="_blank">
-                                          <div class="client-row" style="margin-left: 50px;">
-                                              <!-- 사진 -->
-                                          </div>
-                                          <h4>Python</h4>
-                                          <span><strong>MiniProject</strong></span>
-                                          <p>파이썬으로 간단하게 만든 게시판</p>
-                                        </a> 
-                                          <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/pyapp" target="_blank">https://github.com/kdi0905/pyapp</a></span><br>
-                                          <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr:8888/" target="_blank">http://kdi0905.kro.kr:8888/</a> </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-3 animate" data-animate="fadeInUp">
-                                <div class="contact-box">
-                                  <div class="testimonials-section">
-                                    <div class="item animate " data-animate="fadeInUp"  >
-                                      <div class="testimonial-item">
-                                        <a href ="http://kdi0905.kro.kr/mall" target="_blank">
-                                          <div class="client-row" style="margin-left: 50px;">
-                                               <!-- 사진 -->
-                                          </div>
-                                          <h4>mall</h4>
-                                          <span><strong>MiniProject</strong></span>
-                                          <p>Model 1 으로 DB와 JSP 페이지를 개별로 작업 관리자와 사용자가 독립적인 사이트를 이용할 수 있도록 두 개의 프로젝트로 작업</p>
-                                        </a>
-                                        <span><strong> 프로젝트 기간 : </strong>2020.09.23 - 2020.09.29 <br>     
-                                        <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/mall" target="_blank">https://github.com/kdi0905/mall</a></span><br>
-                                        <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/mall" target="_blank">http://kdi0905.kro.kr/mall</a> </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>  
+      </div>
+    </header>
+<!-- About Section -->
+<div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6"> <img src="img/kimdeokin.jpg" style="width:177px; height:256px; margin: auto;"  class="img-responsive" alt=""> </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>About me</h2>
+            
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fas fa-user-alt"></i> 김덕인
+              </div>
+              <div style="font-size: 20px; margin-bottom: 10px;"  >
+                  <i class="fa fa-phone"></i> 010-8856-4914
+              </div>
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-envelope"></i> sdo5895@naver.com
+              </div>
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                <i class="fa fa-map-marker"></i> 인천광역시 남동구 호구포로924
+              </div>
+           
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Features Section -->
+<div id="features" class="text-center">
+  <div class="container">
+    <div class="col-md-10 col-md-offset-1 section-title">
+      <h2>experience</h2>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-md-2"> <i class="fa fa-bookmark"></i>
+        <h3>Language</h3><br>
+        <p><strong> Java </strong><br> 객체지향설계,  thyemleaf, Servlet, Spring Security, JPA,  REST API
+          <br><br><strong> Python </strong><br>  Pandas, Flask
+          <br><br><strong> Javascript </strong><br>  Node, Express, pug 
+          <br><br><strong>HTML5  </strong><br> canvas
+          <br><br><strong>c  </strong><br> 절차지향설계
+          <br><br><Strong>c#  </Strong><br> WinForm 
+          <br><br><strong>c++  </strong><br> 객체지향설계 
+          <br><br><strong>UNIX  </strong></p>
+      </div>
+      <div class="col-xs-6 col-md-2"> <i class="fa fa-database"></i>
+        <h3>DataBase</h3><br>
+        <p>RDBMS 데이터 모델링 <br><br> SQL  <br><br> Oracle <br><br> Mysql <br><br> Mariadb <br><br>Join <br><br> DDL, DML </p>
+      </div>
+      <div class="col-xs-6 col-md-2"> <i class="fa fa-desktop"></i>
+        <h3>Project tool</h3><br>
+        <p>Eclipst <br><br> Visual Studio Code <br><br> Git <br><br> Github <br><br> Maven <br><br> STS <br><br> Visual Studio 2015</p>
+      </div>
+      <div class="col-xs-6 col-md-2"> <i class="fa fa-cloud"></i>
+        <h3>cloud</h3><br>
+        <p>Amazon Web Services <br><br> Ubuntu <br><br> Tomcat </p>
+      </div>
+      <div class="col-xs-6 col-md-2"> <i class="fa fa-bookmark"></i>
+        <h3>Front-End</h3><br>
+        <p> Bootstrap
+          <br><br>jquery
+          <br><br>Ajax
+          <br><br>ChartJS
+          <br><br>Html
+          <br><br>JavaScript
+        </p>
+      </div>
+      <div class="col-xs-6 col-md-2"> <i class="fa fa-bookmark"></i>
+        <h3>Back-End</h3><br>
+        <p>   Spring FrameWork
+          <br><br>JSP/JSTL
+          <br><br>MyBatis
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6"> <img src="img/LMS.PNG" style=" margin: auto;"  class="img-responsive" alt=""> </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>LMS</h2>
+            
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-group"></i> TeamProject
+              </div>
+              
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-bullhorn"></i> 7인 팀 프로젝트, Spring Boot를 이용한 LMS 시스템 구축
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="far fa-clock"></i> 
+                <span><strong> 프로젝트 기간 : </strong> 2020.12.14 - 2021.01.12</span><br>
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/goodee-project/LMS-X" target="_blank">https://github.com/goodee-project/LMS-X </a></span><br>
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/lms" target="_blank">http://kdi0905.kro.kr/lms</a> </span>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 50px;">
+    <div class="row">
+      <div class="col-xs-12 col-md-6"> <img src="img/Cashbook.PNG" style="margin: auto;"  class="img-responsive" alt=""> </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>CashBook</h2>
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-group"></i> MiniProject
+              </div>
+              
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-bullhorn"></i> Spring Boot, Mybatis, RestController, AJax등을 활용한 가계부 프로그램
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="far fa-clock"></i> 
+                <span><strong> 프로젝트 기간 : </strong>2020.11.03 - 2020.11.18 </span><br>
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/cash" target="_blank">https://github.com/kdi0905/cash</a></span><br>
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/cash" target="_blank">http://kdi0905.kro.kr/cash</a> </span>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 50px;">
+    <div class="row">
+      <div class="col-xs-12 col-md-6"> <img src="img/mall.PNG" style=" margin: auto;"  class="img-responsive" alt=""> </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>mall</h2>
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-group"></i> MiniProject
+              </div>
+              
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-bullhorn"></i> Model 1 으로 DB와 JSP 페이지를 개별로 작업 관리자와 사용자가 독립적인 사이트를 이용할 수 있도록 두 개의 프로젝트로 작업
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="far fa-clock"></i> 
+                <span><strong> 프로젝트 기간 : </strong>2020.09.23 - 2020.09.29</span><br>
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/mall" target="_blank">https://github.com/kdi0905/mall</a></span><br>
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/mall" target="_blank">http://kdi0905.kro.kr/mall</a> </span>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 50px;">
+    <div class="row">
+      <div class="col-xs-12 col-md-6"> <img src="img/mall-admin.PNG" style=" margin: auto;"  class="img-responsive" alt=""> </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>mall-admin</h2>
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-group"></i> MiniProject
+              </div>
+              
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-bullhorn"></i> Model 1 으로 DB와 JSP 페이지를 개별로 작업 관리자와 사용자가 독립적인 사이트를 이용할 수 있도록 두 개의 프로젝트로 작업
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="far fa-clock"></i> 
+                <span><strong> 프로젝트 기간 : </strong>2020.09.16 - 2020.09.22</span><br>
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/mall-admin" target="_blank">https://github.com/kdi0905/mall-admin</a></span><br>
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> AWS 배포 경로 :  </strong><a href="http://kdi0905.kro.kr/mall-admin" target="_blank">http://kdi0905.kro.kr/mall-admin</a> </span>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 50px;">
+    <div class="row">
+      <div class="col-xs-12 col-md-6"> <img src="img/sakila.PNG" style=" margin: auto;"  class="img-responsive" alt=""> </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>Sakila</h2>
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-group"></i> MiniProject
+              </div>
+              
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-bullhorn"></i> Model 2 기법으로 만든 비디오 대여점 관리 프로젝트
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="far fa-clock"></i> 
+                <span><strong> 프로젝트 기간 : </strong>2020.10.19 - 2020.11.05</span><br>
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/sakila" target="_blank">https://github.com/kdi0905/sakila</a></span><br>
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/sakila/LoginServlet" target="_blank">http://kdi0905.kro.kr/sakila/LoginServlet</a> </span>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 50px;">
+    <div class="row">
+      <div class="col-xs-12 col-md-6"> <img src="img/employees.PNG" style=" margin: auto;"  class="img-responsive" alt=""> </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>Employees</h2>
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-group"></i> MiniProject
+              </div>
+              
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-bullhorn"></i> Mysql 샘플 EMPLOYEES 데이터베이스를 이용한 JSP만으로 구현한 직원 관리 프로젝트
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="far fa-clock"></i> 
+                <span><strong> 프로젝트 기간 : </strong>2020.09.08 - 2020.09.15</span><br>
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/employees" target="_blank">https://github.com/kdi0905/employees</a></span><br>
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr/employees" target="_blank">http://kdi0905.kro.kr/employees</a> </span>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 50px;">
+    <div class="row">
+      <div class="col-xs-12 col-md-6"> <img src="img/pyohon.PNG" style=" margin: auto;"  class="img-responsive" alt=""> </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>Python</h2>
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-group"></i> MiniProject
+              </div>
+              
+              <div style="font-size: 20px; margin-bottom: 10px;" >
+                  <i class="fa fa-bullhorn"></i>파이썬으로 간단하게 만든 게시판
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> GitHub 소스 코드 : </strong> <a href="https://github.com/kdi0905/pyapp" target="_blank">https://github.com/kdi0905/pyapp</a></span><br>
+              </div>
+              <div style=" margin-bottom:10px;" >
+                <i class="fa fa-map-marker"></i> 
+                <span><strong> AWS 배포 경로 :  </strong> <a href="http://kdi0905.kro.kr:8888/" target="_blank">http://kdi0905.kro.kr:8888/</a> </span>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <script src="js/jquery.js"></script>
 
-    <script src="js/bootstrap.min.js"></script>
-
-    <script src="js/fullpage.min.js"></script>
-
-    <script src="js/scrolloverflow.js"></script>
-
-    <script src="js/owl.carousel.min.js"></script>
-
-    <script src="js/jquery.inview.min.js"></script>
-
-    <script src="js/form.js"></script>
-
-    <script src="js/custom.js"></script>
-
-
-  </body>
+<!-- Footer Section -->
+<div id="footer">
+  <div class="container text-center">
+    <p>Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a></p>
+  </div>
+</div>
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="js/bootstrap.js"></script> 
+<script type="text/javascript" src="js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="js/nivo-lightbox.js"></script> 
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="js/contact_me.js"></script> 
+<script type="text/javascript" src="js/main.js"></script>
+</body>
 </html>
